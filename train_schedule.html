@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <title>Miffy's Travel Times</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: Atma, serif;
+      font-size: 20px;
+      background-color: #f4f4f4;
+    }
+    .navbar {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      background-color: #212d4f;
+    }
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 50px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .schedule-table {
+      width: 100%;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    th, td {
+      text-align: center;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"></a>
+      <img src="miffylogo.webp" alt="Logo" class="img-fluid rounded-circle" style="width: 20%; height: auto;">
+    </div>
+    <ul class="nav navbar-nav navbar-center">
+      <li><a href="mainpage.html">Home</a></li>
+      <li><a href="train_schedule.html">Train Schedule</a></li>
+      <li><a href="help.html">Help</a></li>
+    </ul>
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container">
+  <h2 class="text-center">Metro Manila Train Schedule</h2>
+  <table class="table table-bordered schedule-table">
+    <thead>
+      <tr class="info">
+        <th>Departure Station</th>
+        <th>Arrival Station</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>North Avenue</td>
+        <td>Taft Avenue</td>
+        <td>6:00 AM</td>
+        <td>6:45 AM</td>
+      </tr>
+      <tr>
+        <td>Quezon Avenue</td>
+        <td>Ayala</td>
+        <td>7:00 AM</td>
+        <td>7:40 AM</td>
+      </tr>
+      <tr>
+        <td>GMA Kamuning</td>
+        <td>Buendia</td>
+        <td>8:30 AM</td>
+        <td>9:10 AM</td>
+      </tr>
+      <tr>
+        <td>Araneta Center-Cubao</td>
+        <td>Shaw Boulevard</td>
+        <td>9:00 AM</td>
+        <td>9:35 AM</td>
+      </tr>
+      <tr>
+        <td>Ortigas</td>
+        <td>Magallanes</td>
+        <td>10:15 AM</td>
+        <td>10:50 AM</td>
+      </tr>
+      <tr>
+        <td>Boni</td>
+        <td>Guadalupe</td>
+        <td>11:30 AM</td>
+        <td>11:50 AM</td>
+      </tr>
+      <tr>
+        <td>Buendia</td>
+        <td>Taft Avenue</td>
+        <td>1:00 PM</td>
+        <td>1:30 PM</td>
+      </tr>
+      <tr>
+        <td>Shaw Boulevard</td>
+        <td>North Avenue</td>
+        <td>3:45 PM</td>
+        <td>4:20 PM</td>
+      </tr>
+      <tr>
+        <td>Ayala</td>
+        <td>Quezon Avenue</td>
+        <td>5:00 PM</td>
+        <td>5:40 PM</td>
+      </tr>
+      <tr>
+        <td>Magallanes</td>
+        <td>GMA Kamuning</td>
+        <td>6:30 PM</td>
+        <td>7:15 PM</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
