@@ -4,31 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<title>3rd QTR project</title>
-  
-  <style> @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
-
-    body{
+  <title>3rd QTR Project</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
+    body {
       font-family: Atma, serif;
       font-size: 20px;
+      background-color: #f9f9f9;
     }
-    .navbar{
+    .navbar {
       padding-top: 2px;
       padding-bottom: 2px;
       background-color: #212d4f;
     }
-    #miffy{
+    .container {
+      margin-top: 50px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      align-items: center;
+    }
+    .ticket-section {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
       margin-top: 20px;
     }
-    #load{
-      margin-top: 20px;
+    .metro-map {
+      width: 500px;
+      height: 500px;
+      object-fit: cover;
     }
-  
-
+    .navbar-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .navbar-right {
+      position: absolute;
+      right: 10px;
+    }
   </style>
-
 </head>
 <body>
 
@@ -36,27 +53,112 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#"></a>
-      <img src="miffylogo.webp" alt="Logo" class="img-fluid rounded-circle" style=" width: 20%; height: auto;">
+      <img src="miffylogo.webp" alt="Logo" class="img-fluid rounded-circle" style="width: 20%; height: auto;">
     </div>
-
-    <ul class="nav navbar-nav" id="miffy">
-      <li class=""><a href="#">Home</a></li>
-      <li><a href="#">Train schdule</a></li>
-      <li><a href="#">Help</a></li>
+    <ul class="nav navbar-nav navbar-center">
+      <li><a href="mainpage.html">Home</a></li>
+      <li><a href="train_schedule.html">Train Schedule</a></li>
+      <li><a href="help.html">Help</a></li>
     </ul>
-    <form class="navbar-form navbar-left" action="/action_page.php">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="search" id="load">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit" style="margin-top: 20px;">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
-        </div>
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
       </div>
+      <button type="submit" class="btn btn-default">Search</button>
     </form>
   </div>
 </nav>
 
+<div class="container">
+  <section class="ticket-section">
+    <h2>Miffy's Map</h2>
+    <img src="metro_manila_transit_map.png" alt="Metro Manila Transit Map" class="metro-map">
+  </section>
+  
+  <section class="ticket-section">
+    <h2>Book Your Ticket!</h2>
+    <form>
+      <div class="form-group">
+        <label for="departure">Departure Station:</label>
+        <select class="form-control" id="departure">
+          <option>North Avenue</option>
+          <option>Quezon Avenue</option>
+          <option>GMA Kamuning</option>
+          <option>Araneta Center-Cubao</option>
+          <option>Santolan</option>
+          <option>Ortigas</option>
+          <option>Shaw Boulevard</option>
+          <option>Boni</option>
+          <option>Guadalupe</option>
+          <option>Buendia</option>
+          <option>Ayala</option>
+          <option>Magallanes</option>
+          <option>Taft Avenue</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="destination">Destination Station:</label>
+        <select class="form-control" id="destination">
+          <option>North Avenue</option>
+          <option>Quezon Avenue</option>
+          <option>GMA Kamuning</option>
+          <option>Araneta Center-Cubao</option>
+          <option>Santolan</option>
+          <option>Ortigas</option>
+          <option>Shaw Boulevard</option>
+          <option>Boni</option>
+          <option>Guadalupe</option>
+          <option>Buendia</option>
+          <option>Ayala</option>
+          <option>Magallanes</option>
+          <option>Taft Avenue</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="discount">Discount Type:</label>
+        <select class="form-control" id="discount">
+          <option value="0">None</option>
+          <option value="0.35">Senior Citizen (35%)</option>
+          <option value="0.30">PWD (30%)</option>
+          <option value="0.25">Student (25%)</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="calculatePrice()">Calculate Price</button>
+      <h3 id="finalPrice" style="margin-top: 20px;"></h3>
+    </form>
+  </section>
+</div>
+
+<script>
+    var stationFares = {
+      "North Avenue": 0,
+      "Quezon Avenue": 10,
+      "GMA Kamuning": 15,
+      "Araneta Center-Cubao": 20,
+      "Santolan": 25,
+      "Ortigas": 30,
+      "Shaw Boulevard": 35,
+      "Boni": 40,
+      "Guadalupe": 45,
+      "Buendia": 50,
+      "Ayala": 55,
+      "Magallanes": 60,
+      "Taft Avenue": 65
+    };
+  
+    function calculatePrice() {
+      var departure = document.getElementById('departure').value;
+      var destination = document.getElementById('destination').value;
+  
+      var discount = parseFloat(document.getElementById('discount').value);
+     
+      var basePrice = Math.abs(stationFares[destination] - stationFares[departure]);
+  
+      var finalPrice = basePrice - (basePrice * discount);
+      
+      document.getElementById('finalPrice').innerText = 'Final Ticket Price: PHP ' + finalPrice.toFixed(2);
+    }
+  </script>  
+
 </body>
 </html>
-
