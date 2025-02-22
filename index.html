@@ -11,14 +11,15 @@
             font-family: 'Arial', sans-serif;
         }
         .container {
-            margin-top: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 40px;
             max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .login-header img {
@@ -27,7 +28,7 @@
             display: block;
             margin: 0 auto 20px;
             border-radius: 50%;
-            background-color: #000; 
+            background-color: #212d4f; 
             padding: 10px;
         }
 
@@ -52,7 +53,7 @@
 
         .btn-login {
             width: 100%;
-            background-color: #000;
+            background-color: #212d4f;
             color: #fff;
             border-radius: 10px;
             padding: 12px;
@@ -61,7 +62,8 @@
         }
 
         .btn-login:hover {
-            background-color: #333;
+            background-color: #2e3c63;
+            color: #fff;
         }
 
         .forgot-password {
@@ -87,7 +89,8 @@
         <img src="miffyicon.png" alt="Miffy Express Logo">
     </div>
     <h3>Miffy Express</h3>
-    <form action="#">
+    
+    <form onsubmit="redirectToMainPage(event)">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" placeholder="Enter your username">
@@ -96,12 +99,19 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Enter your password">
         </div>
-        <button type="submit" class="btn btn-login" herf="homepage.html">Login</button>
+        <button type="submit" class="btn btn-login" onclick="location.href='mainpage.html'">Login</button>
     </form>
     <div class="forgot-password">
         <a href="#">Forgot Password?</a>
     </div>
 </div>
+
+<script>
+    function redirectToMainPage(event) {
+        event.preventDefault(); // Prevents default form submission
+        window.location.href = "mainpage.html";
+    }
+</script>
 
 </body>
 </html>
